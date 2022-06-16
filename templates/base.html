@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!--Latest compiled and minified css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!--JQuery Library-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--popper js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!--Latest compiled java script-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>{% block title_block %} Blogs {% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}"><img src="/media/blog.jpg" width="50px" alt="website logo"></a>
+
+        </li>
+        {% if user.is_authenticated  %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Login_App:profile' %}">profile</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Login_App:logout' %}">logout</a>
+        </li>
+
+        {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Login_App:signup' %}">Sign Up</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Login_App:login' %}">login</a>
+        </li>
+        {% endif %}
+      </ul>
+      {% if user.is_authenticated %}
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" href="#">
+          @{{ user.username }}
+        </a>
+      <div class="dropdown-menu">
+
+          <a class="nav-link" href="{% url 'Login_App:profile' %}">Your profile</a>
+          <a class="dropdown-item" href="{% url 'Login_App:logout' %}">logout</a>
+          {% else %}
+
+      </div>
+      </div>
+      {% endif %}
+    </nav>
+    <div class="container" style="padding-top:20px">
+      {% block body_block %}
+
+      {% endblock %}
+    </div>
+
+  </body>
+</html>
