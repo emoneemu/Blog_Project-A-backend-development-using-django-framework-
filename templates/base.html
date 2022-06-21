@@ -29,8 +29,9 @@
             @{{ user.username }}
           </a>
           <div class="dropdown-menu">
-
+            <a class="dropdown-item" href="{% url 'Blog_App:Create_Blog' %}">Write Blog</a>
             <a class="dropdown-item" href="{% url 'Login_App:profile' %}">Your profile</a>
+            <hr>
             <a class="dropdown-item" href="{% url 'Login_App:logout' %}">logout</a>
           </div>
         </div>
