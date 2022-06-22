@@ -13,6 +13,7 @@
 
     <!--Latest compiled java script-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>{% block title_block %} Blogs {% endblock %}</title>
   </head>
   <body>
@@ -31,6 +32,7 @@
           <div class="dropdown-menu">
             <a class="dropdown-item" href="{% url 'Blog_App:Create_Blog' %}">Write Blog</a>
             <a class="dropdown-item" href="{% url 'Login_App:profile' %}">Your profile</a>
+            <a class="dropdown-item" href="{% url 'Blog_App:My_Blog' %}">My Blogs</a>
             <hr>
             <a class="dropdown-item" href="{% url 'Login_App:logout' %}">logout</a>
           </div>
